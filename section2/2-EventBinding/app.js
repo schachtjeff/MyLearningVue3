@@ -2,17 +2,27 @@ const app = Vue.createApp({
   data() {
     return {
       counter: 0,
-      name: ''
+      name: '',
+      fullname: ''
     };
   },
+  watch: {
+    name(value) {
+      if (value === '') {
+        this.fullname = '';
+      } else {
+        this.fullname = value + ' ' + 'Schwarzmuller';
+      }
+    },
+  },
   computed: {
-    fullname() {
+    /* fullname() {
       console.log('Running stuff again...');
       if (this.name === '') {
         return '';
       }
       return this. name + ' ' + 'Schwarzmuller';
-    }
+    } */
   },
   methods: {
     addCounter(num) {
