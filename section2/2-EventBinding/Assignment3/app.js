@@ -19,6 +19,14 @@ const app = Vue.createApp({
         addTwoNums(num) {
             this.number = this.number + num;
         }
+    },
+    watch: {
+        result() {
+            const that = this;
+            setTimeout(function() {
+                that.number = 0;
+            }, 5000);
+        }
     }
 });
 
