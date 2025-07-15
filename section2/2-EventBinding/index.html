@@ -21,15 +21,11 @@
       <!-- Event handling with button and with function.-->
       <button v-on:click="addCounter(10)">Add 10</button>
       <button v-on:click="subtractCounter(5)">Remove 5</button>
-      <!-- Lock an initial value -->
-      <p v-once>Starting Counter: {{ counter }}</p>
       <p>Result: {{ counter }}</p>
-      <input type="text" v-on:input="setName" v-on:keyup.enter="confirmInput">
-      <p>Your name: {{ name }}</p>
-      <form v-on:submit.prevent="submitForm">
-        <input type="text">
-        <button>Sign Up</button>
-      </form>
+      <!-- v-model is short for v-bind and v-on -->
+      <input type="text" v-model="name">
+      <button v-on:click="resetInput">Reset Input</button>
+      <p>Your name: {{ fullname }}</p>
     </section>
   </body>
 </html>

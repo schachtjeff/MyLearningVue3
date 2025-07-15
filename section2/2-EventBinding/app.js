@@ -3,24 +3,48 @@ const app = Vue.createApp({
     return {
       counter: 0,
       name: '',
-      confirmedName: ''
+      fullname: ''
     };
+  },
+  watch: {
+    name(value) {
+      if (value === '') {
+        this.fullname = '';
+      } else {
+        this.fullname = value + ' ' + 'Schwarzmuller';
+      }
+    },
+  },
+  computed: {
+    /* fullname() {
+      console.log('Running stuff again...');
+      if (this.name === '') {
+        return '';
+      }
+      return this. name + ' ' + 'Schwarzmuller';
+    } */
   },
   methods: {
     addCounter(num) {
       this.counter = this.counter + num;
     },
-    confirmInput() {
-      this.confirmedName = this.name;
+    outputFullName() {
+      if (this.name === '') {
+        return '';
+      }
+      return this. name + ' ' + 'Schwarzmuller';
     },
     subtractCounter(num) {
       this.counter = this.counter - num;
     },
-    setName(username) {
-      this.name = username.target.value;
+    setName(event, lastName) {
+      this.name = event.target.value;
     },
     submitForm() {
       alert('Submitted!');
+    },
+    resetInput() {
+      this.name = '';
     }
   }
 });
