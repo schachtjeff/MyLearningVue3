@@ -24,8 +24,8 @@
       <!-- v-else-if and v-else can be added with but must with same element otherwise breaks.-->
       <!-- v-show shows the list items vs those hidden in the if-->
       <p v-if="goals.length === 0">No goals have been added yet - please start adding some!</p>
-      <ul>
-        <li>Goal</li>
+      <ul v-else>
+        <li v-for="item in goals">{{ item }}</li>
       </ul>
     </section>
   </body>
