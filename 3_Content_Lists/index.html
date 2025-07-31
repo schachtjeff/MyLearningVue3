@@ -22,6 +22,7 @@
       <button @click="addGoal">Add Goal</button>
       <!-- v-if checks condition in this case an array length that is empty and will output following text if true.-->
       <!-- v-else-if and v-else can be added with but must with same element otherwise breaks.-->
+      <!-- v-show shows the list items vs those hidden in the if-->
       <p v-if="goals.length === 0">No goals have been added yet - please start adding some!</p>
       <ul>
         <li>Goal</li>
