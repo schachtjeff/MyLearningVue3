@@ -25,8 +25,15 @@
       <!-- v-show shows the list items vs those hidden in the if-->
       <p v-if="goals.length === 0">No goals have been added yet - please start adding some!</p>
       <ul v-else>
-        <li v-for="item in goals">{{ item }}</li>
+        <!-- Get index (item, index) in goals-->
+        <li v-for="(item, index) in goals">{{index}} - {{ item }}</li>
       </ul>
+      <!--<ul>
+        <li v-for="num in 10">{{ num }}</li>
+      </ul>
+      <ul>
+        <li v-for="(value, key, index) in {name: 'Max', age: '31'}">{{ key }}: {{ value }}</li>
+      </ul> -->
     </section>
   </body>
 </html>
