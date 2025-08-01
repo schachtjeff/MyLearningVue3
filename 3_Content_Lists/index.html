@@ -26,7 +26,8 @@
       <p v-if="goals.length === 0">No goals have been added yet - please start adding some!</p>
       <ul v-else>
         <!-- Get index (item, index) in goals-->
-        <li v-for="(item, index) in goals" @click="removeGoal(index)">{{index}} - {{ item }}</li>
+        <!-- use of the key attribute is best for ids when using v-for, niche bugs. Data moves together.-->
+        <li v-for="(item, index) in goals" :key="goal" @click="removeGoal(index)">{{index}} - {{ item }}</li>
       </ul>
       <!--<ul>
         <li v-for="num in 10">{{ num }}</li>
