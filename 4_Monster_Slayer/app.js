@@ -6,6 +6,7 @@ function getRandValue(min, max) {
 const app = Vue.createApp({
     data() {
         return {
+            currentRound: 0,
             playerHealth: 100,
             monsterHealth: 100
         };
@@ -16,10 +17,14 @@ const app = Vue.createApp({
         },
         playerHealthStyles() {
             return {width: this.playerHealth + '%'};
+        },
+        specialAttackPermitted() {
+            return this.currentRound % 3 !== 0;
         }
     },
     methods: {
         attackMonster() {
+            this.currentRound++;
             const attackValue = getRandValue(5, 12);
             this.monsterHealth -= attackValue;
             this.attackPlayer();
@@ -28,6 +33,12 @@ const app = Vue.createApp({
             
             const attackValue = getRandValue(8, 15);
             this.playerHealth -= attackValue;
+        },
+        specialAttackMonster() {
+            this.currentRound++;
+            const attackValue = getRandValue(10, 25);
+            this.monsterHealth -= attackValue;
+            this.attackPlayer();
         }
     }
 });
