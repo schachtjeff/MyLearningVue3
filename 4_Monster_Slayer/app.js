@@ -14,9 +14,15 @@ const app = Vue.createApp({
     },
     computed: {
         monsterHealthStyles() {
+            if (this.monsterHealth < 0) {
+                return { width: '0%' };
+            }
             return { width: this.monsterHealth + '%' };
         },
         playerHealthStyles() {
+            if (this.playerHealth < 0) {
+                return { width: '0%' };
+            }
             return {width: this.playerHealth + '%'};
         },
         specialAttackPermitted() {
@@ -69,6 +75,15 @@ const app = Vue.createApp({
             const attackValue = getRandValue(10, 25);
             this.monsterHealth -= attackValue;
             this.attackPlayer();
+        },
+        startNewGame() {
+            this.playerHealth = 100;
+            this.monsterHealth = 100;
+            this.winner = null;
+            this.currentRound = 0;
+        },
+        surrender() {
+            this.winner = 'monster';
         }
     }
 });
