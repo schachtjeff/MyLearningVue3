@@ -11,6 +11,8 @@ const app = Vue.createApp({
     },
     setText() {
       this.message = this.currentUserInput;
+      //Get access to DOM text using refs, see in input.  It will be locked.
+      //console.log(this.$refs.userText);
     },
   },
 });
